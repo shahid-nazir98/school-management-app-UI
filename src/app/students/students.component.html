@@ -1,0 +1,95 @@
+
+<div class="page-container">
+
+  <div class="page-header">
+
+  <div class="left">
+    <mat-form-field appearance="outline" class="search-box">
+      <mat-label>Search Student</mat-label>
+      <input matInput (keyup)="applyFilter($event)">
+    </mat-form-field>
+  </div>
+
+  <div class="right">
+    <button mat-raised-button color="primary" (click)="openAddDialog()">
+      + Add Student
+    </button>
+  </div>
+
+</div>
+
+  <div class="card">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+
+      <!-- Serial Number -->
+<ng-container matColumnDef="sno">
+  <th mat-header-cell *matHeaderCellDef>S.No</th>
+  <td mat-cell *matCellDef="let element; let i = index">
+    {{ i + 1 }}
+  </td>
+</ng-container>
+
+      <!-- Name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let s">{{ s.name }}</td>
+      </ng-container>
+
+      <!-- Class -->
+     <ng-container matColumnDef="class">
+  <th mat-header-cell *matHeaderCellDef>
+
+    <div class="header-with-filter">
+      Class
+
+      <mat-form-field appearance="outline" class="small-filter">
+        <mat-select (selectionChange)="filterByClass($event.value)">
+          <mat-option value="">All</mat-option>
+           <mat-option *ngFor="let c of classList" [value]="c">
+      {{ c }}
+    </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </th>
+
+  <td mat-cell *matCellDef="let s">{{ s.class }}</td>
+</ng-container>
+
+      <!-- Section -->
+      <ng-container matColumnDef="section">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Section</th>
+        <td mat-cell *matCellDef="let s">{{ s.section }}</td>
+      </ng-container>
+
+      <!-- Phone -->
+      <ng-container matColumnDef="parentPhone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+        <td mat-cell *matCellDef="let s">{{ s.parentPhone }}</td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let s">
+          <button mat-button color="primary" (click)="editStudent(s)">Edit</button>
+          <button mat-button color="warn" (click)="deleteStudent(s.id)">Delete</button>
+        </td>
+      </ng-container>
+
+      <!-- Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+      <mat-paginator
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+ 
+
+</div>

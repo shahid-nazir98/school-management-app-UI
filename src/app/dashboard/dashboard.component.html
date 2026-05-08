@@ -1,0 +1,61 @@
+<div class="page-container">
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-title">Total Students</div>
+    <div class="kpi-value">{{data.totalStudents}}</div>
+    <div class="kpi-trend positive">+{{data.studentGrowthPct || 0}}% vs last year</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-title">Collected Fees</div>
+    <div class="kpi-value">₹ {{data.totalFees}}</div>
+    <div class="kpi-trend positive">+12% this month</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-title">Pending Fees</div>
+    <div class="kpi-value">₹ {{data.pendingFees}}</div>
+    <div class="kpi-trend negative">-5% this month</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-title">Attendance</div>
+    <div class="kpi-value">{{data.attendance}}%</div>
+    <div class="kpi-trend positive">Today</div>
+  </div>
+</div>
+
+
+<!-- Charts -->
+<div class="charts-grid">
+
+  <div class="chart-card">
+    <h4>Monthly Fees Collection</h4>
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h4>Student Growth</h4>
+    <div class="chart-container">
+      <canvas id="lineChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h4>Fee Distribution</h4>
+    <div class="chart-container small">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h4>Attendance</h4>
+    <div class="chart-container small">
+      <canvas id="attendanceChart"></canvas>
+    </div>
+  </div>
+
+</div>
+</div>

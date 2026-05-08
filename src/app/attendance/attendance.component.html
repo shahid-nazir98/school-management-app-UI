@@ -1,0 +1,178 @@
+<div class="page-container">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h2>Attendance Management</h2>
+  </div>
+
+  <!-- Filters Card -->
+  <div class="card filter-card">
+
+    <div class="filter-grid">
+
+      <!-- Class -->
+      <mat-form-field appearance="outline">
+        <mat-label>Class</mat-label>
+
+        <mat-select [(ngModel)]="selectedClass" (selectionChange)="filterStudents()">
+
+          <mat-option *ngFor="let c of classList" [value]="c">
+            {{ c }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Section -->
+      <mat-form-field appearance="outline">
+        <mat-label>Section</mat-label>
+
+        <mat-select [(ngModel)]="selectedSection">
+          <mat-option value="A">A</mat-option>
+          <mat-option value="B">B</mat-option>
+          <mat-option value="C">C</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Date -->
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+
+        <input matInput type="date" [(ngModel)]="attendanceDate">
+
+      </mat-form-field>
+
+      <!-- Load -->
+      <div class="load-btn">
+        <button mat-raised-button color="primary">
+          Load Students
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-grid">
+
+    <div class="summary-card present">
+      <h3>Present</h3>
+      <h1>{{presentCount}}</h1>
+    </div>
+
+    <div class="summary-card absent">
+      <h3>Absent</h3>
+      <h1>{{absentCount}}</h1>
+    </div>
+
+    <div class="summary-card pending">
+      <h3>Pending</h3>
+      <h1>{{pendingCount}}</h1>
+    </div>
+
+  </div>
+
+  <!-- Attendance Table -->
+  <div class="card">
+
+    <table class="attendance-table">
+
+      <thead>
+
+        <tr>
+          <th>#</th>
+          <th>Student Name</th>
+
+          <th>P1</th>
+          <th>P2</th>
+          <th>P3</th>
+          <th>P4</th>
+          <th>P5</th>
+
+          <th>Attendance %</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let s of filteredStudents; let i = index">
+
+          <td>{{i + 1}}</td>
+
+          <td class="student-name">
+            {{s.name}}
+          </td>
+
+          <!-- P1 -->
+          <td>
+            <button
+              class="status-btn"
+              [ngClass]="getStatusClass(s.id, 1)"
+              (click)="toggleAttendance(s.id, 1)">
+              {{ getStatusText(s.id, 1) }}
+            </button>
+          </td>
+
+          <!-- P2 -->
+          <td>
+            <button
+              class="status-btn"
+              [ngClass]="getStatusClass(s.id, 2)"
+              (click)="toggleAttendance(s.id, 2)">
+              {{ getStatusText(s.id, 2) }}
+            </button>
+          </td>
+
+          <!-- P3 -->
+          <td>
+            <button
+              class="status-btn"
+              [ngClass]="getStatusClass(s.id, 3)"
+              (click)="toggleAttendance(s.id, 3)">
+              {{ getStatusText(s.id, 3) }}
+            </button>
+          </td>
+
+          <!-- P4 -->
+          <td>
+            <button
+              class="status-btn"
+              [ngClass]="getStatusClass(s.id, 4)"
+              (click)="toggleAttendance(s.id, 4)">
+              {{ getStatusText(s.id, 4) }}
+            </button>
+          </td>
+
+          <!-- P5 -->
+          <td>
+            <button
+              class="status-btn"
+              [ngClass]="getStatusClass(s.id, 5)"
+              (click)="toggleAttendance(s.id, 5)">
+              {{ getStatusText(s.id, 5) }}
+            </button>
+          </td>
+
+          <!-- Percentage -->
+          <td>
+            {{ calculatePercentage(s.id) }}%
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <!-- Save Button -->
+    <div class="save-section">
+      <button mat-raised-button color="primary">
+        Save Attendance
+      </button>
+    </div>
+
+  </div>
+
+</div>

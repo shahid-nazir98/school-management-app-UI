@@ -1,0 +1,73 @@
+
+<div class="layout">
+
+  <!-- Sidebar -->
+<div class="sidebar">
+
+  <div class="logo">
+    🎓 School App
+  </div>
+
+  <div class="menu">
+
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+
+    <p class="section">STUDENTS</p>
+    <a routerLink="/students" routerLinkActive="active">
+      <mat-icon>group</mat-icon>
+      <span>View Students</span>
+    </a>
+
+    <p class="section">FEES</p>
+    <a routerLink="/fees" routerLinkActive="active">
+      <mat-icon>currency_rupee</mat-icon>
+      <span>Fees Management</span>
+    </a>
+
+    <!-- <a routerLink="/fees/student" routerLinkActive="active">
+      <mat-icon>person</mat-icon>
+      <span>Student Wise</span>
+    </a>
+
+    <a routerLink="/fees/class" routerLinkActive="active">
+      <mat-icon>school</mat-icon>
+      <span>Class Wise</span>
+    </a> -->
+
+    <p class="section">ATTENDANCE</p>
+    <a routerLink="/attendance" routerLinkActive="active">
+      <mat-icon>event_available</mat-icon>
+      <span>View Attendance</span>
+    </a>
+
+  </div>
+
+</div>
+
+  <!-- Main Area -->
+  <div class="main">
+
+    <mat-toolbar class="topbar">
+
+  <span class="title">  {{ pageTitle }}</span>
+
+  <span class="spacer"></span>
+
+  <div class="user-section">
+    <span>Hi, {{ username }}</span>
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
+
+</mat-toolbar>
+
+    <!-- 🔥 THIS loads your pages -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>

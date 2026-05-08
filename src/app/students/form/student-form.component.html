@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>
+  {{ isEdit ? 'Edit Student' : 'Add Student' }}
+</h2>
+
+<form #studentForm="ngForm">
+
+  <div mat-dialog-content>
+
+    <!-- Name -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="student.name" name="name" required #name="ngModel" autofocus>
+      <mat-error *ngIf="name.invalid && name.touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Class -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Class</mat-label>
+      <input matInput [(ngModel)]="student.class" name="class" required #class="ngModel">
+      <mat-error *ngIf="class.invalid && class.touched">
+        Class is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Section -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Section</mat-label>
+      <input matInput [(ngModel)]="student.section" name="section" required #section="ngModel">
+      <mat-error *ngIf="section.invalid && section.touched">
+        Section is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Phone -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Phone</mat-label>
+      <input matInput [(ngModel)]="student.parentPhone"
+             name="phone"
+             required
+             pattern="^[0-9]{10}$"
+             #phone="ngModel">
+
+      <mat-error *ngIf="phone.errors?.['required'] && phone.touched">
+        Phone is required
+      </mat-error>
+
+      <mat-error *ngIf="phone.errors?.['pattern'] && phone.touched">
+        Enter valid 10-digit number
+      </mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancel</button>
+
+   <button mat-raised-button color="primary" (click)="save()"
+        [disabled]="studentForm.invalid || loading">
+   {{ isEdit ? 'Update' : 'Save' }}
+</button>
+  </div>
+
+</form>

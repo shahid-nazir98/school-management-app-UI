@@ -1,0 +1,60 @@
+.page-container {
+  padding: 20px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th.mat-header-cell {
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+tr.mat-row:hover {
+  background: #f1f5f9;
+}
+mat-paginator {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* 🔥 move to right */
+}
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.search-box {
+  width: 300px;
+}
+.header-with-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.small-filter {
+  width: 80px;
+}
+
+.small-filter .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+

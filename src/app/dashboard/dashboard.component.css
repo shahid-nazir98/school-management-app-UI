@@ -1,0 +1,64 @@
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.chart-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.chart-card:hover {
+  transform: translateY(-3px);
+  transition: 0.2s;
+}
+
+.chart-container {
+  position: relative;
+  height: 220px;
+}
+
+.chart-container.small {
+  height: 180px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.kpi-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.kpi-title {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.kpi-trend {
+  font-size: 12px;
+}
+
+.positive { color: #22c55e; }
+.negative { color: #ef4444; }

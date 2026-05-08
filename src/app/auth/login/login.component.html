@@ -1,0 +1,39 @@
+<div class="login-container">
+
+  <!-- LEFT SIDE -->
+  <div class="login-left">
+    <h1>School App</h1>
+    <p>Manage students, fees & attendance easily</p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="login-right">
+
+    <mat-card class="login-card">
+
+      <h2>Welcome Back 👋</h2>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" (click)="login()">
+        Login
+      </button>
+
+      <p class="register-text">
+        Don't have an account?
+        <a routerLink="/register">Register</a>
+      </p>
+
+    </mat-card>
+
+  </div>
+
+</div>
